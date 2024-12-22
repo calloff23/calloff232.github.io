@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Martakl Mahal Ka Ni Iyan</title>
+    <style>
+        /* General Body Styling */
+        body {
+            background-color: #4CAF50; /* Green background */
+            font-family: Arial, sans-serif;
+            color: white;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            flex-direction: column;
+            text-align: center;
+        }
+
+        /* Container Styling */
+        .container {
+            padding: 20px;
+            background-color: rgba(255, 255, 255, 0.3); /* Semi-transparent white */
+            border-radius: 10px;
+            width: 80%;
+            max-width: 600px;
+        }
+
+        h1 {
+            font-size: 36px;
+            margin-bottom: 20px;
+            font-weight: bold;
+        }
+
+        .message {
+            font-size: 24px;
+            margin-bottom: 30px;
+        }
+
+        /* Button Styling */
+        .button {
+            padding: 15px 30px;
+            background-color: white;
+            color: #4CAF50;
+            border: none;
+            border-radius: 5px;
+            font-size: 18px;
+            cursor: pointer;
+        }
+
+        .button:hover {
+            background-color: #45a049;
+        }
+
+        /* Dance Animation */
+        @keyframes dance {
+            0% {
+                transform: rotate(0deg);
+            }
+            25% {
+                transform: rotate(10deg);
+            }
+            50% {
+                transform: rotate(-10deg);
+            }
+            75% {
+                transform: rotate(10deg);
+            }
+            100% {
+                transform: rotate(0deg);
+            }
+        }
+
+        .dancing {
+            animation: dance 1s infinite;
+        }
+
+        /* Footer for credits */
+        .credits {
+            margin-top: 20px;
+            font-size: 18px;
+        }
+
+        /* Music Player Hidden by Default */
+        audio {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Martakl Mahal Ka Ni Iyan</h1>
+        <p class="message">Click the button below to hear the surprise!</p>
+        <button class="button" onclick="startRickroll()">Click Me!</button>
+
+        <audio id="rickrollAudio" autoplay>
+            <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mp3">
+            Your browser does not support the audio tag.
+        </audio>
+
+        <div id="dance" style="display:none;">
+            <img src="https://media.giphy.com/media/xT9IgH4gexPeh3gP9i/giphy.gif" alt="Dance GIF" class="dancing">
+        </div>
+
+        <div class="credits" id="credits" style="display:none;">
+            <p>Credits by Ruiz</p>
+        </div>
+    </div>
+
+    <script>
+        function startRickroll() {
+            // Display the dance GIF
+            document.getElementById('dance').style.display = 'block';
+            
+            // Start playing the Rickroll song
+            var audio = document.getElementById('rickrollAudio');
+            audio.play();
+
+            // Hide the button and show credits after 10 seconds
+            setTimeout(function() {
+                document.querySelector('.button').style.display = 'none';
+                document.getElementById('credits').style.display = 'block';
+            }, 10000); // Show credits after 10 seconds
+        }
+    </script>
+</body>
+</html>
